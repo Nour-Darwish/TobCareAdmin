@@ -1,0 +1,488 @@
+/* Doctor Management Enhanced Styles */
+:root {
+    --primary: #2c3e50;
+    --primary-light: #34495e;
+    --accent: #3498db;
+    --accent-hover: #2980b9;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --info: #0197a5;
+    --warning: #f39c12;
+    --light-bg: #f8f9fa;
+    --border: #e0e0e0;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --card-bg: #ffffff;
+  }
+  
+  /* Main container */
+  .admin-doctors-wrapperr {
+    background-color: var(--light-bg);
+    min-height: 100vh;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+  }
+  
+  /* Header styling */
+  .admin-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 1.5rem 2rem;
+    color: #ffffff;
+    box-shadow: var(--shadow);
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 2rem;
+  }
+  
+  .admin-header-top {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .admin-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .admin-date {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 6px;
+  }
+  
+  /* Back button */
+  .back-arrow {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .back-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(-3px);
+  }
+  
+  /* Actions bar */
+  .admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Search bar */
+  .doctor-search {
+    position: relative;
+    width: 360px;
+  }
+  
+  .doctor-search input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background-color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+  
+  .doctor-search input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+  }
+  
+  /* Add button */
+  .admin-doctor-add-btn {
+    background-color: var(--accent);
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .admin-add-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.35);
+  }
+  
+  /* Doctor Grid Layout */
+  .doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 2rem 2rem;
+  }
+  
+  /* Doctor Card */
+  .doctor-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .doctor-card-header {
+    position: relative;
+    height: 140px;
+    background: linear-gradient(135deg, var(--primary-light), var(--accent));
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 0;
+  }
+  
+  .doctor-card-header img {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: var(--shadow);
+    margin-bottom: -30px;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  .doctor-card:hover .doctor-card-header img {
+    transform: scale(1.05);
+    border-radius: 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .doctor-status {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  
+  .doctor-status.active {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--success);
+  }
+  
+  .doctor-status.inactive {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: var(--danger);
+  }
+  
+  .doctor-card-body {
+    padding: 40px 20px 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .doctor-card-body h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .doctor-card-body .specialty {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--accent);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 5px 0 20px;
+  }
+  
+  .doctor-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: auto;
+    padding: 15px 0;
+  }
+  
+  .doctor-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .doctor-stat:first-child::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background-color: var(--border);
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  
+  .doctor-card-actions {
+    display: flex;
+    border-top: 1px solid var(--border);
+  }
+  
+  .doctor-edit-btn, 
+  .doctor-delete-btn {
+    flex: 1;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .doctor-edit-btn {
+    color: var(--success);
+    border-right: 1px solid var(--border);
+  }
+  
+  .doctor-delete-btn {
+    color: var(--danger);
+  }
+  
+  .doctor-edit-btn:hover {
+    background-color: rgba(46, 204, 113, 0.1);
+  }
+  
+  .doctor-delete-btn:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+  }
+  
+  /* Rating stars */
+  .rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-top: 5px;
+  }
+  
+  .star {
+    color: #f1c40f;
+    font-size: 14px;
+  }
+  
+  /* Empty grid message */
+  .empty-grid {
+    grid-column: 1 / -1;
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
+  
+  .empty-grid p {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 450px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .modal h3 {
+    color: var(--text-dark);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  
+  .modal p {
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+  }
+  
+  .modal p:last-of-type {
+    margin-bottom: 1.8rem;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .modal-cancel, 
+  .modal-confirm {
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    min-width: 120px;
+  }
+  
+  .modal-cancel {
+    background-color: #f1f2f6;
+    color: #636e72;
+  }
+  
+  .modal-confirm {
+    background-color: var(--danger);
+    color: white;
+  }
+  
+  .modal-cancel:hover {
+    background-color: #dfe4ea;
+    transform: translateY(-2px);
+  }
+  
+  .modal-confirm:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+  }
+  
+  /* Loading state */
+  .admin-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: var(--text-light);
+  }
+  
+  .loading-spinner {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top: 3px solid var(--accent);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .admin-actions {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .admin-search {
+      width: 100%;
+    }
+    
+    .admin-add-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .doctor-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 0 1rem 1rem;
+    }
+  }
